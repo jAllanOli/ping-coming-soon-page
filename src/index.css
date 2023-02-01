@@ -1,0 +1,56 @@
+:root {
+  /*primary*/
+  --blue: hsl(223, 87%, 63%);
+
+  /*secondary*/
+  --pale-blue: hsl(223, 100%, 88%);
+  --light-red: hsl(354, 100%, 66%);
+
+  /*secondary*/
+  --gray: hsl(0, 0%, 59%);
+  --very-dark-blue: hsl(209, 33%, 12%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input {
+  font-family: "Libre Franklin", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+@media (min-width: 900px) {
+  .main-container__title {
+    font-size: 2rem;
+  }
+
+  .main-container__text {
+    font-size: 1.15rem;
+  }
+
+  .form-area {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .form-area__email-label {
+    width: min(100%, 20rem);
+    position: relative;
+}
+
+  .form-area__button {
+    width: min(100%, 10rem);
+  }
+   
+  .error{
+    position: absolute;
+    top: 	110%;
+  }
+}
