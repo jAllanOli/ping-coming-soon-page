@@ -1,5 +1,7 @@
 import { MailForm } from "./components/form";
 import "./App.css";
+import logo from "./assets/images/logo.svg"
+import computerImg from "./assets/images/illustration-dashboard.png"
 
 function App() {
   return (
@@ -7,7 +9,7 @@ function App() {
       <header className="logo-area">
         <img
           className="logo-area__img"
-          src="./src/assets/images/logo.svg"
+          src={logo}
           alt="logo"
         />
       </header>
@@ -23,7 +25,7 @@ function App() {
 
         <img
           className="main-container__img"
-          src="./src/assets/images/illustration-dashboard.png"
+          src={computerImg}
           alt="preview"
         />
       </main>
