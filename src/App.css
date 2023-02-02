@@ -34,12 +34,12 @@
 }
 
 .main-container__text {
-    font-size: .85rem;
+    font-size: 1rem;
     color: var(--very-dark-blue);
 }
 
 .main-container__img {
-    width: min(95%, 30rem);
+    width: min(95%, 40rem);
 }
 
 .footer-area {

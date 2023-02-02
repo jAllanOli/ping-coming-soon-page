@@ -28,11 +28,11 @@ body {
 
 @media (min-width: 900px) {
   .main-container__title {
-    font-size: 2rem;
+    font-size: 3.2rem;
   }
 
   .main-container__text {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
   }
 
   .form-area {
@@ -40,17 +40,28 @@ body {
     justify-content: center;
   }
 
+  .form-area__email {
+    font-size: 1.1rem;
+    padding: 1rem 2.5rem;
+  }
+
   .form-area__email-label {
-    width: min(100%, 20rem);
+    width: min(100%, 30rem);
     position: relative;
 }
 
   .form-area__button {
-    width: min(100%, 10rem);
+    width: min(100%, 15rem);
+    font-size: 1.1rem;
+    padding: 1rem 3rem;
   }
    
   .error{
     position: absolute;
     top: 	110%;
   }
+
+  .logo-area__img {
+    width: 5.4rem;
+}
 }
