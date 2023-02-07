@@ -15,13 +15,15 @@ export function MailForm() {
       })
 
     return (
-      <form className="form-area" noValidate onSubmit={handleSubmit()}>
+      <form noValidate className="form-area" onSubmit={handleSubmit()}>
         <label className="form-area__email-label" htmlFor="email">
-          <input
+          <input          
+          onInput={handleSubmit()}
           className="form-area__email"
-            type="email"
-            placeholder="Your email address..."
-            {...register("email", { required: true})}
+          type="email"
+          placeholder="Your email address..."
+          required
+          {...register("email", { required: true})}
           />
           <span className="error" aria-live="polite">{errors.email?.message}</span>
         </label>
