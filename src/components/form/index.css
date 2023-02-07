@@ -22,20 +22,26 @@
   color: var(--pale-blue);
 }
 
-.error {
+.error-valid {
+  display: none;
+}
+
+.error-invalid {
+  display: inline-block;
   color: var(--light-red);
   font-style: italic;
   font-size: 0.75rem;
   position: relative;
   bottom: 0;
-  left: 15%;
+  left: 10%;
+}
+
+.input-invalid {
+  border: 1px solid var(--light-red);
 }
 
 .form-area__email:focus {
   outline: none;
-}
-.form-area__email:invalid {
-  border: 1px solid var(--light-red);
 }
 
 .form-area__button {

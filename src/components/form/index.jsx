@@ -1,33 +1,48 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from "yup";
+import { useState } from "react";
 
-import "./index.css"
-
-const schema = yup.object({
-    email: yup.string().email("Please provide a valid email address").required("Whoops! It looks like you forgot to add your email")
-})
+import "./index.css";
 
 export function MailForm() {
-    const { register, handleSubmit, formState: { errors } } = useForm({
-        resolver: yupResolver(schema)
-      })
+  const [isValid, setIsValid] = useState(true);
+  const [errorMessage, setErrorMessge] = useState("");
 
-    return (
-      <form noValidate className="form-area" onSubmit={handleSubmit()}>
-        <label className="form-area__email-label" htmlFor="email">
-          <input          
-          onInput={handleSubmit()}
-          className="form-area__email"
+  function checkValidity(event) {
+    if (!event.target.validity.valid) {
+      setIsValid(false);
+      showError(event);
+      event.preventDefault();
+    } else {
+      setIsValid(true)
+    }
+  }
+
+  function showError(event) {
+    if (event.target.validity.valueMissing) {
+      setErrorMessge("Whoops! It looks like you forgot to add your email");
+    } else if (event.target.validity.typeMismatch) {
+      setErrorMessge("Please provide a valid email address");
+    }
+  }
+
+  return (
+    <form noValidate className="form-area" onSubmit={checkValidity}>
+      <label className="form-area__email-label" htmlFor="email">
+        <input
+          onInput={checkValidity}
+          className={`form-area__email ${!isValid ? `input-invalid` : ``}`}
           type="email"
           placeholder="Your email address..."
           required
-          {...register("email", { required: true})}
-          />
-          <span className="error" aria-live="polite">{errors.email?.message}</span>
-        </label>
-        <input className="form-area__button" type="submit" value="Notify Me" />
-      </form>
-    );
-  }
+        />
+        <span
+          className={`${isValid ? `error-valid` : `error-invalid`}`}
+          aria-live="polite"
+        >
+          {errorMessage}
+        </span>
+      </label>
+      <input className="form-area__button" type="submit" value="Notify Me" />
+    </form>
+  );
+}

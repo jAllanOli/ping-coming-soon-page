@@ -50,17 +50,18 @@ body {
     position: relative;
 }
 
+  .error-invalid {
+    top: 4rem;
+    position: absolute;
+    font-size: .9rem;
+  }
+
   .form-area__button {
     width: min(100%, 15rem);
     font-size: 1.1rem;
     padding: 1rem 3rem;
   }
    
-  .error{
-    position: absolute;
-    top: 	110%;
-  }
-
   .logo-area__img {
     width: 5.4rem;
 }

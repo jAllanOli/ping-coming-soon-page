@@ -45,13 +45,13 @@ Users should be able to:
 - Flexbox
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [React-Hook-Form](https://react-hook-form.com) - Library
+- Constraint Validation API
 - [BEM](https://en.bem.info) - CSS architecture
 
 
 ### What I learned
 
-In this particular challenge i've started using react and the very first problem was learning form validation, and for this i used the react hook form library, which made everything more simple, leting only some details to fix. 
+In this particular challenge i've started using react and the very first problem was learning form validation, and for this i initially used the react hook form library, which made everything more simple, leting only some details to fix, but later i've updated the validation using something that i already have some experience, the constraint validation API, which brought the result i wanted. 
 Tryied really hard to make all the responsiveness look clean fine, and i think the final product ended up pretty ok. 
 I've also tryied to started implementing a CSS architecture (BEM), but since this challenge didn't had such complexity, the pratice wasn't the best, but it was still a experience.
 
