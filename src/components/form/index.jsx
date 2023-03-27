@@ -4,24 +4,39 @@ import { useState } from "react";
 import "./index.css";
 
 export function MailForm() {
-  const [isValid, setIsValid] = useState(true);
+  const [formValidity, setFormValidity] = useState(false);
+  const [inputValidity, setInputValidity] = useState(true);
+  const [isEmpty, setIsEmpty] = useState(true);
   const [errorMessage, setErrorMessge] = useState("");
 
   function checkValidity(event) {
-    if (!event.target.validity.valid) {
-      setIsValid(false);
-      showError(event);
+    if (!formValidity) {
       event.preventDefault();
+      if (isEmpty) {
+        setInputValidity(false);
+        setErrorMessge("Whoops! It looks like you forgot to add your email");
+      }
+    }
+  }
+
+  function checkInput(event) {
+    if (!event.target.validity.valid) {
+      setIsEmpty(false);
+      setFormValidity(false);
+      setInputValidity(false);
+      showError(event);
     } else {
-      setIsValid(true)
+      setInputValidity(true);
+      setFormValidity(true);
     }
   }
 
   function showError(event) {
-    if (event.target.validity.valueMissing) {
-      setErrorMessge("Whoops! It looks like you forgot to add your email");
-    } else if (event.target.validity.typeMismatch) {
+    if (event.target.validity.typeMismatch) {
       setErrorMessge("Please provide a valid email address");
+    } else if (event.target.validity.valueMissing) {
+      setIsEmpty(true);
+      setErrorMessge("Whoops! It looks like you forgot to add your email");
     }
   }
 
@@ -29,14 +44,16 @@ export function MailForm() {
     <form noValidate className="form-area" onSubmit={checkValidity}>
       <label className="form-area__email-label" htmlFor="email">
         <input
-          onInput={checkValidity}
-          className={`form-area__email ${!isValid ? `input-invalid` : ``}`}
+          onInput={checkInput}
+          className={`form-area__email ${
+            !inputValidity ? `input-invalid` : ``
+          }`}
           type="email"
           placeholder="Your email address..."
           required
         />
         <span
-          className={`${isValid ? `error-valid` : `error-invalid`}`}
+          className={`${formValidity ? `error-valid` : `error-invalid`}`}
           aria-live="polite"
         >
           {errorMessage}
